@@ -1,0 +1,2 @@
+Each lesson will be like separate module with own package.json, tests, etc.
+All of them should be configured from root folder by lerna.

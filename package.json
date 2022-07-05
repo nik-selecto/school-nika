@@ -1,0 +1,31 @@
+{
+  "name": "school-nika",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest",
+    "lint": "npx eslint --fix './lessons/*/src/**/*.js' './lessons/*/__tests__/**/*.js'",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test",
+      "pre-commit": "npm lint"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "keywords": [],
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.2",
+    "lerna": "^5.1.6"
+  }
+}
