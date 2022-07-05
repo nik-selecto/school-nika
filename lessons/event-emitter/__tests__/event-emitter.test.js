@@ -1,15 +1,12 @@
-// const eventEmitter = require('../src/event-emitter');
-const Emitter = require('events');
+const eventEmitter = require('../src/event-emitter');
 
 describe('event-emitter', () => {
-  let ok; let
-    hello;
-  let tester = [];
+  let ok;
+  let hello;
+  let tester;
 
   beforeEach(() => {
-    ok = new Emitter();
-    hello = new Emitter();
-    tester = [];
+    ({ ok, hello, tester } = eventEmitter);
     hello.on('hello', () => tester.push('world'));
     ok.on('ok', () => tester.push('google'));
   });
