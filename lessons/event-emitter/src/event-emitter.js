@@ -1,7 +1,7 @@
 /**
  * Create event-emitter.
  *
- * Create bariable | let tester = []; |
+ * Create variable | let tester = []; |
  *
  * Add events 'hello' and 'ok'
  *
@@ -9,5 +9,6 @@
  *
  * On 'ok' event listener should store string 'google' into tester
  *
- * Export object with these emitters and tester variable under the 'ok', 'hello' and tester keys respectivly
+ * Export object with these emitters
+ * and tester variable under the 'ok', 'hello' and tester keys respective
  */
