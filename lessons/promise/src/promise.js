@@ -31,7 +31,7 @@ async function orderCounting() {
   return numbers;
 }
 
-// Uncoment this function call to see your solution in action
+// Uncomment this function call to see your solution in action
 // orderCounting();
 
 module.exports = orderCounting;
