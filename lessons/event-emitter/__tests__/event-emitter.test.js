@@ -1,44 +1,40 @@
-// const eventEmitter = require('../src/event-emitter');
-const Emitter = require('events');
+const eventEmitter = require('../src/event-emitter');
 
 describe('event-emitter', () => {
-  let ok; let
-    hello;
-  let tester = [];
+  let tester;
+  let emitter;
 
   beforeEach(() => {
-    ok = new Emitter();
-    hello = new Emitter();
-    tester = [];
-    hello.on('hello', () => tester.push('world'));
-    ok.on('ok', () => tester.push('google'));
+    ({ emitter, tester } = eventEmitter);
+    while (tester.length !== 0) tester.pop();
   });
 
   it('Should store "world" keys on "hello" event', () => {
-    hello.emit('hello');
+    emitter.emit('hello');
 
     expect(tester.pop()).toBe('world');
   });
 
   it('Should store "google" keys on "ok" event', () => {
-    ok.emit('ok');
+    emitter.emit('ok');
 
     expect(tester.pop()).toBe('google');
   });
 
   it('Should store "world" 2 times and "google" -3', () => {
-    hello.emit('hello');
-    hello.emit('hello');
-    ok.emit('ok');
-    ok.emit('ok');
-    ok.emit('ok');
+    emitter.emit('hello');
+    emitter.emit('hello');
+    emitter.emit('ok');
+    emitter.emit('ok');
+    emitter.emit('ok');
 
-    ['world', 'world', 'google', 'google', 'google'].forEach((v, i) => expect(v).toBe(tester[i]));
+    ['world', 'world', 'google', 'google', 'google']
+      .forEach((v, i) => expect(v).toBe(tester[i]));
   });
 
   it('Should store 100 items', () => {
     for (let i = 0; i < 100; ++i) {
-      hello.emit('hello');
+      emitter.emit('hello');
     }
 
     expect(tester.length).toBe(100);
